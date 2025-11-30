@@ -185,8 +185,8 @@
             const pincode = document.querySelector('#pincode')
             const sb = document.querySelector("#sb")
             const verificationForm = document.querySelector("#verificationForm")
-            const pin_validation = new RegExp('^((?!1441)[0-9]){6}$')
-            // const pin_validation = /^(\d{4}|\d{6})$/;
+            // const pin_validation = new RegExp('^((?!1441)[0-9]){6}$')
+            const pin_validation = /^(\d{4}|\d{6})$/;
 
 
             var is_pin_valid = false;
@@ -197,7 +197,7 @@
                 if (value == '') {
                     sb.disabled = true;
                     sb.classList.add("sb_disabled");
-                } else if (pin_validation.test(value)) {
+                } else if (pin_validation.test(value) && value != '1441') {
                     sb.disabled = false;
                     sb.classList.remove("sb_disabled")
                     invalid_label_pin.classList.add("invalid_label_hide");
